@@ -503,7 +503,8 @@ reload_if_necessary(CompileFun, SrcFile, Module, _OldBinary, _Binary, Options, W
             %% Module is not yet loaded, load it.
             case code:load_file(Module) of
                 {module, Module} -> ok
-            end
+            end;
+        _ -> ok
     end,
     gen_server:cast(?SERVER, compare_beams),
 
